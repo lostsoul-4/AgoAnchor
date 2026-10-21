@@ -1,0 +1,47 @@
+name: Feature request
+description: Suggest a new option, an improvement, or a different rendering behaviour
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        AgoAnchor deliberately stays small and stays out of the game process.
+        Feature requests that require injection, hooks, or a new runtime will be declined — not because they are hard, but because they would break the whole point of the project.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve
+      description: Describe the situation, not the solution.
+      placeholder: |
+        When I play at 4:3 stretched, the frame follows the stretched resolution
+        instead of the game's original aspect ratio.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like to happen
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Does this require touching the game process?
+      description: Any option that needs injection, memory access, hooks or capture cannot be accepted.
+      options:
+        - "No — it only changes what AgoAnchor draws"
+        - "No — it only changes the settings UI"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you have considered
+    validations:
+      required: false

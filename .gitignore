@@ -1,0 +1,33 @@
+# ---- Build output ----
+# Exes are distributed through GitHub Releases, not committed.
+build/
+!build/.gitkeep
+
+# ---- Config / runtime data (never commit) ----
+data/
+.datapath
+config.json
+overlay.log
+
+# ---- Debug / test output ----
+gallery/
+preview/
+uishot/
+trayshot/
+*.png
+!src/res/*.png
+!docs/*.png
+
+# ---- IDE / OS ----
+.vs/
+.idea/
+*.user
+*.suo
+*.cache
+Thumbs.db
+desktop.ini
+*.tmp
+
+# ---- Local media (videos, audio) ----
+*.wav
+*.mp4

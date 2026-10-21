@@ -1,0 +1,39 @@
+name: build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Locate the built-in C# compiler
+        shell: pwsh
+        run: |
+          $csc = "$env:WINDIR\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+          if (-not (Test-Path $csc)) { throw "csc.exe not found at $csc" }
+          Write-Host "Using $csc"
+          & $csc /? | Select-Object -First 1
+
+      - name: Build
+        shell: cmd
+        run: build.bat
+
+      - name: Self-test
+        shell: cmd
+        run: build\AgoAnchor.diag.exe --selftest
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: AgoAnchor
+          path: |
+            build/AgoAnchor.exe
+            build/AgoAnchor.diag.exe
+          if-no-files-found: error

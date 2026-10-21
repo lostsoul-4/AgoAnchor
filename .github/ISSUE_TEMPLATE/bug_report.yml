@@ -1,0 +1,76 @@
+name: Bug report
+description: Something is not rendering correctly, or the app crashes
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. A few details make fixes much faster — especially the log file.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you expect, and what did you actually see?
+      placeholder: |
+        Expected: the dot frame should sit inside the screen edges.
+        Actual: the right edge is cut off.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Launch AgoAnchor
+        2. Set frame size to 90%
+        3. Start COD in borderless windowed
+        4. ...
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Windows version
+      placeholder: "Windows 11 24H2 (build 26100)"
+    validations:
+      required: true
+
+  - type: input
+    id: displays
+    attributes:
+      label: Displays
+      description: Resolution and scaling for each monitor. Visible in Settings → Displays.
+      placeholder: "2560x1440 @ 100%, 2560x1440 @ 100% (primary)"
+    validations:
+      required: true
+
+  - type: input
+    id: game
+    attributes:
+      label: Game and display mode
+      placeholder: "COD Warzone, borderless windowed"
+    validations:
+      required: false
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: |
+        Paste the contents of `build\data\overlay.log`.
+        If the app fell back to another folder, the path is shown at the bottom of the settings panel.
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshots
+      description: Drag images here — one of the settings panel and one of the overlay on your desktop.
+    validations:
+      required: false
