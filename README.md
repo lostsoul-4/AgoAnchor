@@ -210,3 +210,6 @@ Issues and pull requests are welcome. If you are reporting a rendering problem, 
 - A screenshot of the settings panel
 
 Before opening a PR, run `build\AgoAnchor.diag.exe --selftest` and make sure it still prints `ALL PASS`.
+
+
+Everything is Vibe coded so I'm just leaving it here for backup purposes or if anyone actually want to take it and use. While it's supposedly anticheat safe, use it at your own risk, I'm not responsible if your get banned for using it by any chance.
